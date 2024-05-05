@@ -6,29 +6,33 @@ Source: https://sketchfab.com/3d-models/personal-computer-b943e06de72c4b2b9ac6b9
 Title: Personal Computer
 */
 
-import React, { useRef } from 'react'
+import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import { useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 export function Model(props) {
-  const { nodes, materials } = useGLTF('/personal_computer.glb')
+  const { nodes, materials } = useLoader(GLTFLoader, '/personal_computer.glb')
   const myMesh = React.useRef()
+  const bounce = React.useRef()
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime()
     myMesh.current.rotation.y = a
+    bounce.current.position.y = Math.cos(a * 3) - 1.5
   })
 
   return (
     <group {...props} dispose={null}>
-      <group position={[0, -1.5, -5]} rotation={[-Math.PI / 2, 0, 0]} scale={0.015}>
+      <group position={[0, -1.5, -5]} rotation={[-Math.PI / 2, 0, 0]} scale={0.015} ref={bounce}>
         <group rotation={[Math.PI / 2, Math.PI / -2, 0]} ref={myMesh}>
           <group position={[0, 222.2, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
             <mesh
               castShadow
               receiveShadow
               geometry={nodes.monitor_gray_0.geometry}
-              material={materials.gray}
+              material={materials.gray_metallic}
             />
             <mesh
               castShadow
