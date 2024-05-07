@@ -60,6 +60,22 @@ export default function Home() {
     }
   } 
 
+  useEffect(() => {
+    // Attach the keydown event listener
+    document.addEventListener('keydown', handleKeyDown)
+
+    // Cleanup the event listener on unmount
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
+  function HandleLoad({ load }) {
+    useEffect(() => {
+      setIsLoading(true)
+      return () => setIsLoading(false)
+    }, [])
+  }
 
 	return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -97,12 +113,5 @@ export default function Home() {
       </div>
     </section>
 	);
-
-  function HandleLoad({ load }) {
-    useEffect(() => {
-      setIsLoading(true)
-      return () => setIsLoading(false)
-    }, [])
-  }
 }
 
