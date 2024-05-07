@@ -98,7 +98,7 @@ export default function Home() {
         {isLoading && <Loading />} 
       </div>
       <div id='button'> 
-        <Tooltip content="Yes, you can also click me...">
+        <Tooltip showArrow={true} color='secondary' content="Yes, you can also click me... 👀">
           <Button
             size="lg"
             radius="full"
