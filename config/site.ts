@@ -5,7 +5,7 @@ export const siteConfig = {
 	description: "My Fullstack developper portfolio",
 	navItems: [
 		{
-			label: "Home",
+			label: "About",
 			href: "/",
 		},
 	],

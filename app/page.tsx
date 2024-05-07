@@ -11,7 +11,8 @@ import { Model } from "./model"
 
 import { title } from "@/components/primitives"
 import { Button } from "@nextui-org/button";
-
+import {Kbd} from "@nextui-org/kbd";
+import {Tooltip} from "@nextui-org/tooltip";
 import Loading from './loading';
 
 
@@ -51,7 +52,15 @@ export default function Home() {
       router.push('/about')
     }, 1500)
   }
-  
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault() // Prevent default Space behavior
+      handleClick()
+    }
+  } 
+
+
 	return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div id="title" className="inline max-w-lg">
@@ -73,16 +82,18 @@ export default function Home() {
         {isLoading && <Loading />} 
       </div>
       <div id='button'> 
-        <Button
-          size="lg"
-          radius="full"
-          variant="shadow"
-          color="default"
-          className="mt-8"
-          onClick={handleClick}
-        >
-          Let's go!
-        </Button>
+        <Tooltip content="Yes, you can also click me...">
+          <Button
+            size="lg"
+            radius="full"
+            variant="shadow"
+            color="default"
+            className="mt-8"
+            onClick={handleClick}
+          >
+            Press <Kbd> Enter</Kbd> or <Kbd> Space</Kbd> to start!
+          </Button>
+        </Tooltip>
       </div>
     </section>
 	);
