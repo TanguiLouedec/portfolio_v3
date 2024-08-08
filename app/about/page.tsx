@@ -1,5 +1,9 @@
+import { title } from "@/components/primitives"
+
 export default function About() {
   return(
-    <h1>This will be the home page</h1>
+    <div id="tittle" className="">
+      <h1 className={title()}>A little more about me</h1>
+    </div>
   )
 }

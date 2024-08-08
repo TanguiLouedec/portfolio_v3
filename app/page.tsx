@@ -86,7 +86,7 @@ export default function Home() {
         <h1 className={title({ color: "violet"})}>Tangui</h1>
         <h1 className={title()}>,</h1>
         <br />
-        <h1 className={title()}>fullstack developper</h1>
+        <h1 className={title()}>fullstack dev</h1>
       </div>
       <div id='render' className="w-full h-96 mt-16">
         <Canvas>
