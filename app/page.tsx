@@ -107,7 +107,7 @@ export default function Home() {
             className="mt-8"
             onClick={handleClick}
           >
-            Press <Kbd> Enter</Kbd> or <Kbd> Space</Kbd> to start!
+            Press <Kbd> Enter</Kbd> to learn more about me!
           </Button>
         </Tooltip>
       </div>

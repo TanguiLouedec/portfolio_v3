@@ -25,7 +25,7 @@ export function Model(props) {
 
   return (
     <group {...props} dispose={null}>
-      <group position={[0, -1.5, -5]} rotation={[-Math.PI / 2, 0, 0]} scale={0.015} ref={bounce}>
+      <group position={[0, -1.5, -5]} rotation={[-Math.PI / 2, 0, Math.PI]} scale={0.015} ref={bounce}>
         <group rotation={[Math.PI / 2, Math.PI / -2, 0]} ref={myMesh}>
           <group position={[0, 222.2, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
             <mesh
@@ -99,7 +99,7 @@ export function Model(props) {
           </group>
           <group
             position={[314.5, 2.8, 10.7]}
-            rotation={[-Math.PI / 2, 0.2, 0]}
+            rotation={[-Math.PI / 2, 0.3, 0]}
             scale={[100, 179.4, 100]}>
             <mesh
               castShadow
